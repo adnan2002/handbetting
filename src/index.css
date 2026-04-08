@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+/*──────────────────────────────────────────────
+  Font Embedding
+──────────────────────────────────────────────*/
+
+/* Inter — Body/UI (variable: opsz, wght) */
+@font-face {
+  font-family: "Inter";
+  src: url("./fonts/Inter/Inter-VariableFont_opsz,wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("./fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Noto Serif — Display/Headings (variable: wdth, wght) */
+@font-face {
+  font-family: "Noto Serif";
+  src: url("./fonts/Noto_Serif/NotoSerif-VariableFont_wdth,wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Noto Serif";
+  src: url("./fonts/Noto_Serif/NotoSerif-Italic-VariableFont_wdth,wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Space Mono — Monospace/Numeric values */
+@font-face {
+  font-family: "Space Mono";
+  src: url("./fonts/Space_Mono/SpaceMono-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Space Mono";
+  src: url("./fonts/Space_Mono/SpaceMono-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Space Mono";
+  src: url("./fonts/Space_Mono/SpaceMono-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Space Mono";
+  src: url("./fonts/Space_Mono/SpaceMono-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/*──────────────────────────────────────────────
+  Design Tokens
+──────────────────────────────────────────────*/
+
+@theme {
+  /* Font Families */
+  --font-display: "Noto Serif", Georgia, serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "Space Mono", ui-monospace, monospace;
+
+  /* Core Palette */
+  --color-bg-primary: #0B0F19;
+  --color-bg-secondary: #131928;
+  --color-bg-elevated: #1C2333;
+  --color-border: #2A3348;
+  --color-border-focus: #4A7CFF;
+  --color-text-primary: #F1F3F8;
+  --color-text-secondary: #8B95AD;
+  --color-text-muted: #505A72;
+
+  /* Semantic / Feedback */
+  --color-win: #34D399;
+  --color-win-glow: #34D39940;
+  --color-loss: #F87171;
+  --color-loss-glow: #F8717140;
+  --color-accent: #FBBF24;
+  --color-accent-hover: #F59E0B;
+  --color-neutral: #6B7280;
+}
+
+/*──────────────────────────────────────────────
+  Base Reset
+──────────────────────────────────────────────*/
+
+body {
+  margin: 0;
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100svh;
+}
