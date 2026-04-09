@@ -13,7 +13,12 @@ const reasonText: Record<string, string> = {
 
 export default function GameOverScreen({ onPlayAgain }: GameOverScreenProps) {
     const navigate = useNavigate()
-    const { score, gameOverReason, round, reshuffles } = useGameSessionStore()
+    const { score, gameOverReason, round, reshuffles, exitGame } = useGameSessionStore()
+
+    const handleExit = () => {
+        exitGame()
+        navigate('/')
+    }
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
@@ -50,7 +55,7 @@ export default function GameOverScreen({ onPlayAgain }: GameOverScreenProps) {
                     </Button>
                     <button
                         type="button"
-                        onClick={() => navigate('/')}
+                        onClick={handleExit}
                         className="rounded-lg border border-border bg-transparent px-6 py-3 text-sm font-semibold text-text-primary transition hover:bg-bg-elevated"
                     >
                         Home
