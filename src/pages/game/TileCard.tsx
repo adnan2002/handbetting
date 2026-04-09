@@ -29,6 +29,20 @@ function getCategoryBorder(tile: Tile): string {
     return 'border-border'
 }
 
+function getValueBadgeClasses(tile: Tile): string {
+    if (tile.category === 'number') {
+        return 'bg-slate-700/55 text-slate-100'
+    }
+
+    if (tile.category === 'wind') {
+        return 'bg-blue-700/85 text-white'
+    }
+
+    if (tile.name === 'red') return 'bg-red-800/85 text-red-50'
+    if (tile.name === 'green') return 'bg-green-800/85 text-green-50'
+    return 'bg-slate-800/85 text-slate-50'
+}
+
 export default function TileCard({ tile, faceDown = false, size = 'standard', animateReveal = false }: TileCardProps) {
     const sizeClass = sizeClasses[size]
     const valueSize = valueSizeClasses[size]
@@ -42,6 +56,7 @@ export default function TileCard({ tile, faceDown = false, size = 'standard', an
     }
 
     const borderColor = getCategoryBorder(tile)
+    const valueBadgeClasses = getValueBadgeClasses(tile)
 
     return (
         <motion.div
@@ -57,11 +72,9 @@ export default function TileCard({ tile, faceDown = false, size = 'standard', an
                 className="h-full w-full object-contain p-1"
                 draggable={false}
             />
-            {tile.category !== 'number' && (
-                <span className={`absolute bottom-0.5 right-0.5 rounded bg-black/70 px-1 text-text-primary ${valueSize} font-mono`}>
-                    {tile.value}
-                </span>
-            )}
+            <span className={`absolute bottom-0.5 right-0.5 rounded px-1 ${valueBadgeClasses} ${valueSize} font-mono`}>
+                {tile.value}
+            </span>
         </motion.div>
     )
 }

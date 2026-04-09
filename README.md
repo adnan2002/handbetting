@@ -103,7 +103,7 @@ Starting value: **5** (shifts during play).
 | **Language** | <img src="https://cdn.simpleicons.org/typescript/3178C6" alt="TypeScript" width="16" /> TypeScript 6 |
 | **Build Tool** | <img src="https://cdn.simpleicons.org/vite/646CFF" alt="Vite" width="16" /> Vite 8 |
 | **Styling** | <img src="https://cdn.simpleicons.org/tailwindcss/06B6D4" alt="Tailwind CSS" width="16" /> Tailwind CSS v4 |
-| **State Management** | <img src="https://cdn.simpleicons.org/react/61DAFB" alt="Zustand ecosystem" width="16" /> Zustand |
+| **State Management** | <img src="https://user-images.githubusercontent.com/958486/218346783-72be5ae3-b953-4dd7-b239-788a882fdad6.svg" alt="Zustand ecosystem" width="16" /> Zustand |
 | **Animation** | <img src="https://cdn.simpleicons.org/framer/0055FF" alt="Motion" width="16" /> Motion (Framer Motion) |
 | **Routing** | <img src="https://cdn.simpleicons.org/reactrouter/CA4245" alt="React Router" width="16" /> React Router v7 |
 | **Compiler** | <img src="https://cdn.simpleicons.org/react/61DAFB" alt="React Compiler" width="16" /> React Compiler (`babel-plugin-react-compiler`) |
