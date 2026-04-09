@@ -8,14 +8,8 @@
 
 <br/>
 
-![Ton](src/assets/tiles/Ton.svg)
-![Nan](src/assets/tiles/Nan.svg)
-![Shaa](src/assets/tiles/Shaa.svg)
-![Pei](src/assets/tiles/Pei.svg)
-&nbsp;&nbsp;
+
 ![Chun](src/assets/tiles/Chun.svg)
-![Hatsu](src/assets/tiles/Hatsu.svg)
-![Haku](src/assets/tiles/Haku.svg)
 
 </div>
 
