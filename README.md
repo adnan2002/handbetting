@@ -162,8 +162,8 @@ src/
 
 ```bash
 # Clone the repository
-git clone <repo-url> handbetting-2
-cd handbetting-2
+git clone https://github.com/adnan2002/handbetting.git handbetting
+cd handbetting
 
 # Install dependencies
 npm install
