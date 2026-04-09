@@ -49,7 +49,7 @@ export default function TileCard({ tile, faceDown = false, size = 'standard', an
 
     if (faceDown || !tile) {
         return (
-            <div className={`${sizeClass} flex-shrink-0 overflow-hidden rounded-lg border border-border bg-bg-elevated`}>
+            <div className={`${sizeClass} flex shrink-0 overflow-hidden rounded-lg border border-border bg-bg-elevated`}>
                 <img src={tileBackImage} alt="Hidden tile" className="h-full w-full object-cover" draggable={false} />
             </div>
         )
@@ -60,7 +60,7 @@ export default function TileCard({ tile, faceDown = false, size = 'standard', an
 
     return (
         <motion.div
-            className={`${sizeClass} relative flex flex-shrink-0 flex-col items-center justify-center overflow-hidden rounded-lg border-2 ${borderColor} bg-[#F8FAFC]`}
+            className={`${sizeClass} relative flex shrink-0 flex-col items-center justify-center overflow-hidden rounded-lg border-2 ${borderColor} bg-[#F8FAFC]`}
             initial={animateReveal ? { opacity: 0, scale: 0.92, y: 12, rotateY: -90 } : false}
             animate={{ opacity: 1, scale: 1, y: 0, rotateY: 0 }}
             transition={{ duration: 0.28, ease: 'easeOut' }}

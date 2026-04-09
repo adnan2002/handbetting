@@ -52,7 +52,7 @@ const SignIn = () => {
                 </div>
                 <div className="text-center">
                     <Button type="submit" disabled={!canContinue}>
-                        Continue to game
+                        Start Game                       
                     </Button>
                 </div>
             </form>
