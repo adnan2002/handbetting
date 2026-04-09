@@ -115,38 +115,46 @@ Starting value: **5** (shifts during play).
 ```
 src/
 ├── assets/
-│   └── tiles/            # Mahjong tile SVGs (Man 1-9, Winds, Dragons, Back)
+│   └── tiles/                # Mahjong tile SVGs + asset exports
+│       ├── index.ts          # Tile asset export map
+│       └── *.svg             # Man 1-9, Winds, Dragons, Back
 ├── components/
-│   └── Button.tsx        # Shared button component
+│   └── Button.tsx            # Shared button component
 ├── constants/
-│   └── tiles.ts          # Tile definitions, deck creation, shuffle logic
-├── fonts/                # Inter, Noto Serif, Space Mono
+│   └── tiles.ts              # Tile definitions, deck creation, shuffle logic
+├── fonts/                    # Inter, Noto Serif, Space Mono
 ├── hooks/
 │   └── userLocalStorage.ts   # LocalStorage helpers (scores, hand history)
+├── hoc/
+│   └── withUserStatus.tsx    # Injects signed-in user status
 ├── layouts/
-│   └── MainLayout.tsx    # App shell / layout wrapper
+│   └── MainLayout.tsx        # App shell / layout wrapper
 ├── pages/
-│   ├── landing/          # Landing page + Leaderboard
-│   ├── signin/           # Username entry
-│   └── game/             # Core game UI
-│       ├── Game.tsx              # Main game orchestrator & phase state machine
-│       ├── TopBar.tsx            # Score display, round info
-│       ├── HandDisplay.tsx       # Renders a hand of tiles
-│       ├── BettingControls.tsx   # Higher / Lower buttons
-│       ├── TileCard.tsx          # Individual tile renderer
-│       ├── TileValueTracker.tsx  # Live special-tile value sidebar
-│       ├── HistoryStrip.tsx      # Round history feed
-│       ├── DeckShuffleDeal.tsx   # Shuffle & deal animations
-│       └── GameOverScreen.tsx    # End-of-game overlay
+│   ├── ColorPalette.tsx         # Visual reference page for app colors
+│   ├── landing/
+│   │   ├── LandingPage.tsx      # Landing page screen
+│   │   └── LeaderBoard.tsx      # Leaderboard display
+│   ├── signin/
+│   │   └── SignIn.tsx           # Username entry
+│   └── game/
+│       ├── Game.tsx             # Main game orchestrator & phase state machine
+│       ├── TopBar.tsx           # Score display, round info
+│       ├── HandDisplay.tsx      # Renders a hand of tiles
+│       ├── BettingControls.tsx  # Higher / Lower buttons
+│       ├── TileCard.tsx         # Individual tile renderer
+│       ├── TileValueTracker.tsx # Live special-tile value sidebar
+│       ├── HistoryStrip.tsx     # Round history feed
+│       ├── DeckShuffleDeal.tsx  # Shuffle & deal animations
+│       └── GameOverScreen.tsx   # End-of-game overlay
 ├── store/
 │   ├── useGameStore.ts          # Global app state (user session)
 │   └── useGameSessionStore.ts   # Core game logic (betting, scoring, tile mutation)
 ├── types/
-│   ├── tile.ts           # Tile union types (NumberTile, WindTile, DragonTile)
-│   └── game.ts           # Game session types (GameSession, BetDirection, etc.)
-├── App.tsx               # Route definitions
-├── main.tsx              # Entry point
-└── index.css             # Global styles & Tailwind directives
+│   ├── tile.ts               # Tile union types (NumberTile, WindTile, DragonTile)
+│   └── game.ts               # Game session types (GameSession, BetDirection, etc.)
+├── App.tsx                   # Route definitions
+├── main.tsx                  # Entry point
+└── index.css                 # Global styles & Tailwind directives
 ```
 
 ---
