@@ -8,18 +8,6 @@
 
 <br/>
 
-![Man1](src/assets/tiles/Man1.svg)
-![Man2](src/assets/tiles/Man2.svg)
-![Man3](src/assets/tiles/Man3.svg)
-![Man4](src/assets/tiles/Man4.svg)
-![Man5](src/assets/tiles/Man5.svg)
-![Man6](src/assets/tiles/Man6.svg)
-![Man7](src/assets/tiles/Man7.svg)
-![Man8](src/assets/tiles/Man8.svg)
-![Man9](src/assets/tiles/Man9.svg)
-
-<br/>
-
 ![Ton](src/assets/tiles/Ton.svg)
 ![Nan](src/assets/tiles/Nan.svg)
 ![Shaa](src/assets/tiles/Shaa.svg)
@@ -89,9 +77,10 @@ Your final score is saved to the local leaderboard.
 
 Values are fixed at face value.
 
-| ![Man1](src/assets/tiles/Man1.svg) | ![Man2](src/assets/tiles/Man2.svg) 
-|:---:|:---:|
-| **1** | **2** |
+| ![Man1](src/assets/tiles/Man1.svg) | ![Man2](src/assets/tiles/Man2.svg) | ![Man3](src/assets/tiles/Man3.svg) | ![Man4](src/assets/tiles/Man4.svg) | ![Man5](src/assets/tiles/Man5.svg) | ![Man6](src/assets/tiles/Man6.svg) | ![Man7](src/assets/tiles/Man7.svg) | ![Man8](src/assets/tiles/Man8.svg) | ![Man9](src/assets/tiles/Man9.svg) |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| **1** | **2** | **3** | **4** | **5** | **6** | **7** | **8** | **9** |
+
 ### Wind Tiles
 
 Starting value: **5** (shifts during play).
