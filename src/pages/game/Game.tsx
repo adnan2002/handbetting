@@ -12,7 +12,7 @@ import TileValueTracker from './TileValueTracker'
 import HistoryStrip from './HistoryStrip'
 import GameOverScreen from './GameOverScreen'
 import DeckShuffleDeal from './DeckShuffleDeal'
-import Button from '../../components/Button'
+import withUserStatus from '../../hoc/withUserStatus'
 
 type Phase = 'idle' | 'starting' | 'reshuffling' | 'betting' | 'revealing' | 'revealed' | 'gameOver'
 type TileDeltaDirection = 1 | -1
@@ -60,7 +60,7 @@ function getTileDeltaChanges(tiles: Tile[], delta: TileDeltaDirection): Record<s
     return changes
 }
 
-export default function Game() {
+ function Game() {
     const [phase, setPhase] = useState<Phase>('idle')
     const [revealed, setRevealed] = useState<RevealedState | null>(null)
     const [revealedTileCount, setRevealedTileCount] = useState(0)
@@ -185,6 +185,19 @@ export default function Game() {
         setPhase('starting')
     }, [store, username])
 
+    useEffect(() => {
+        if (phase !== 'idle') return
+
+        if (store.currentHand.length > 0) {
+            setDisplayedScore(store.score)
+            setHistory(username ? getHandHistory(username) : [])
+            setPhase('betting')
+            return
+        }
+
+        beginGame()
+    }, [beginGame, phase, store.currentHand.length, store.score, username])
+
     const handleBet = useCallback((direction: BetDirection) => {
         const oldHand = [...store.currentHand]
         const oldValue = oldHand.reduce((s, t) => s + t.value, 0)
@@ -280,23 +293,7 @@ export default function Game() {
     const isStartDealPhase = phase === 'starting' && dealAnimation?.mode === 'start'
     const isReshuffleDealPhase = phase === 'reshuffling' && dealAnimation?.mode === 'reshuffle'
 
-    if (phase === 'idle') {
-        return (
-            <section className="flex flex-1 items-center justify-center py-6">
-                <div className="flex w-full max-w-4xl flex-col items-center rounded-3xl border border-border bg-bg-secondary px-6 py-12 text-center shadow-sm sm:px-10">
-                    <h1 className="font-display text-4xl font-bold text-text-primary sm:text-5xl">
-                        Hand Betting
-                    </h1>
-                    <p className="mt-5 max-w-2xl text-lg leading-8 text-text-secondary">
-                        Draw tiles, bet higher or lower, and keep your run alive as the values shift.
-                    </p>
-                    <div className="mt-8">
-                        <Button onClick={beginGame}>Start Game</Button>
-                    </div>
-                </div>
-            </section>
-        )
-    }
+    if (phase === 'idle') return null
 
     return (
         <section className="flex w-full flex-1 flex-col gap-6 py-2">
@@ -387,3 +384,5 @@ export default function Game() {
         </section>
     )
 }
+
+export default withUserStatus(Game)

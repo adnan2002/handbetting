@@ -23,7 +23,7 @@ function getCategoryBorder(tile: Tile): string {
     if (tile.category === 'dragon') {
         if (tile.name === 'red') return 'border-[#7F1D1D]'
         if (tile.name === 'green') return 'border-[#166534]'
-        return 'border-[#475569]'
+        return 'border-[#1E40AF]'
     }
     if (tile.category === 'wind') return 'border-[#1E40AF]'
     return 'border-border'
@@ -40,7 +40,7 @@ function getValueBadgeClasses(tile: Tile): string {
 
     if (tile.name === 'red') return 'bg-red-800/85 text-red-50'
     if (tile.name === 'green') return 'bg-green-800/85 text-green-50'
-    return 'bg-slate-800/85 text-slate-50'
+    return 'bg-blue-800/85 text-slate-50'
 }
 
 export default function TileCard({ tile, faceDown = false, size = 'standard', animateReveal = false }: TileCardProps) {
