@@ -28,13 +28,6 @@
   font-style: normal;
   font-display: swap;
 }
-@font-face {
-  font-family: "Noto Serif";
-  src: url("./fonts/Noto_Serif/NotoSerif-Italic-VariableFont_wdth,wght.ttf") format("truetype");
-  font-weight: 100 900;
-  font-style: italic;
-  font-display: swap;
-}
 
 /* Space Mono — Monospace/Numeric values */
 @font-face {
@@ -49,20 +42,6 @@
   src: url("./fonts/Space_Mono/SpaceMono-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Space Mono";
-  src: url("./fonts/Space_Mono/SpaceMono-Italic.ttf") format("truetype");
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Space Mono";
-  src: url("./fonts/Space_Mono/SpaceMono-BoldItalic.ttf") format("truetype");
-  font-weight: 700;
-  font-style: italic;
   font-display: swap;
 }
 
