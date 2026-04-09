@@ -27,8 +27,44 @@ export const getScores = (): ScoreEntry[] => {
     return scores ? JSON.parse(scores) : []
 }
 
+export const getTopScores = (limit = 5): ScoreEntry[] => {
+    return [...getScores()].sort((a, b) => {
+        if (b.score !== a.score) return b.score - a.score
+        if (a.durationMs !== b.durationMs) return a.durationMs - b.durationMs
+        return new Date(b.date).getTime() - new Date(a.date).getTime()
+    }).slice(0, limit)
+}
+
 export const setScoreEntry = (scoreEntry: ScoreEntry) => {
     const scores = getScores()
     scores.push(scoreEntry)
     localStorage.setItem(SCORES_STORAGE_KEY, JSON.stringify(scores))
+}
+
+// ── Hand History (per-user) ──
+
+export type HandHistoryEntry = {
+    round: number
+    tiles: Array<{ category: string; name?: string; value: number }>
+    totalValue: number
+    result: 'win' | 'loss' | 'tie'
+}
+
+function historyKey(username: string): string {
+    return `hand_history_${username}`
+}
+
+export const getHandHistory = (username: string): HandHistoryEntry[] => {
+    const raw = localStorage.getItem(historyKey(username))
+    return raw ? JSON.parse(raw) : []
+}
+
+export const addHandHistory = (username: string, entry: HandHistoryEntry): void => {
+    const history = getHandHistory(username)
+    history.push(entry)
+    localStorage.setItem(historyKey(username), JSON.stringify(history))
+}
+
+export const clearHandHistory = (username: string): void => {
+    localStorage.removeItem(historyKey(username))
 }

@@ -12,7 +12,11 @@ function formatDuration(ms: number): string {
     return `${m}:${String(s).padStart(2, '0')}`
 }
 
+const LEADERBOARD_ROWS = 5
+
 const LeaderBoard = ({ entries }: { entries: ScoreEntry[] }) => {
+    const rows = Array.from({ length: LEADERBOARD_ROWS }, (_, index) => entries[index] ?? null)
+
     return (
         <section className="w-full space-y-4">
             <h2 className="font-display text-xl font-semibold text-text-primary">
@@ -40,29 +44,29 @@ const LeaderBoard = ({ entries }: { entries: ScoreEntry[] }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {entries.map((entry, index) => (
+                        {rows.map((entry, index) => (
                             <tr
-                                key={`${entry.username}-${entry.date}`}
-                                className="border-b border-border last:border-b-0 hover:bg-bg-elevated/50"
+                                key={entry ? `${entry.username}-${entry.date}` : `empty-${index + 1}`}
+                                className="border-b border-border last:border-b-0"
                             >
                                 <td className="px-4 py-3 font-mono text-text-muted tabular-nums">
                                     {index + 1}
                                 </td>
                                 <td className="px-4 py-3 font-medium text-text-primary">
-                                    {entry.username}
+                                    {entry?.username ?? ''}
                                 </td>
                                 <td className="px-4 py-3 text-right font-mono text-win tabular-nums">
-                                    {entry.score}
+                                    {entry?.score ?? ''}
                                 </td>
                                 <td className="hidden px-4 py-3 text-right font-mono text-sm text-text-secondary tabular-nums sm:table-cell">
-                                    {formatDuration(entry.durationMs)}
+                                    {entry ? formatDuration(entry.durationMs) : ''}
                                 </td>
                                 <td className="hidden px-4 py-3 text-right text-text-secondary md:table-cell">
-                                    {new Date(entry.date).toLocaleDateString(undefined, {
+                                    {entry ? new Date(entry.date).toLocaleDateString(undefined, {
                                         month: 'short',
                                         day: 'numeric',
                                         year: 'numeric',
-                                    })}
+                                    }) : ''}
                                 </td>
                             </tr>
                         ))}

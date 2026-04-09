@@ -13,13 +13,20 @@ export type ScoreEntry = {
 
 export type BetDirection = 'higher' | 'lower'
 
+export type GameOverReason = 'tile_limit' | 'max_reshuffles' | null
+
 export type GameSession = {
     round: number
     discardPile: Tile[]
     drawPile: Tile[]
     score: number
+    currentHand: Tile[]
+    newHand: Tile[]
     reshuffles: number
-    currentTile: Tile | null
     bet: BetDirection | null
+    date: Date
+    gameOver: boolean
+    gameOverReason: GameOverReason
+    pendingTileUpdate: { betCorrect: boolean; tiles: Tile[] } | null
 }
 

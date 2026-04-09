@@ -31,18 +31,39 @@ export const ALL_TILE_TYPES: Tile[] = [
     ...DRAGON_TILES,
 ]
 
+
+
 export const COPIES_PER_TILE = 4
 export const MAX_RESHUFFLES = 3
+export const TILES_PER_HAND = 4
+export const MIN_SCORE = 0
 
 
 
-// Needs Implementing
-// export function shuffleDeck(deck: Tile[]): Tile[] 
-// export function createDeck(): Tile[] 
 
+
+export function shufflePile(arr: Tile[]): Tile[] {
+    for (let i = arr.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]]; 
+    }
+    return arr;
+}
+
+
+export function createDrawPile(): Tile[] {
+    return shufflePile([...ALL_TILE_TYPES].flatMap(tile => Array(COPIES_PER_TILE).fill(tile)))
+}
 
 
 
 export function getTileValue(tile: Tile): number {
     return tile.value
 }
+
+export function resetTileValues(): void {
+    for (const tile of WIND_TILES) tile.value = 5
+    for (const tile of DRAGON_TILES) tile.value = 5
+}
+
+
