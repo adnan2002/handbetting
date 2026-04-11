@@ -1,5 +1,6 @@
 import { motion } from 'motion/react'
 import { tileBackImage } from '../../assets/tiles/index'
+import {TILES_PER_HAND} from '../../constants/tiles'
 
 type DeckShuffleDealProps = {
     mode: 'start' | 'reshuffle'
@@ -18,7 +19,7 @@ export default function DeckShuffleDeal({ mode, dealtCount }: DeckShuffleDealPro
             </div>
 
             <div className="absolute left-1/2 top-10 -translate-x-[10.5rem]">
-                {Array.from({ length: 5 }, (_, index) => (
+                {Array.from({ length: TILES_PER_HAND }, (_, index) => (
                     <motion.img
                         key={index}
                         src={tileBackImage}
